@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>花 束-商品</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mystyle.css' %}">
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'css/bootstrap.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<style>
+    .search_bar img {
+        float: left;
+        width: 50px;
+        hight: 20px;
+        border-radius: 10px;
+    }
+
+
+    .search_bar {
+        position: relative;
+    }
+
+    .search_bar logo {
+        float: left;
+    }
+
+    .search_bar guest_cart {
+        background: whitesmoke;
+        float: right;
+        position: relative;
+    }
+
+    .footer1 {
+        position: relative;
+        bottom: 0px;
+        height: 20px;
+        width: 650px;
+        left: 400px;
+        text-align: center;
+    }
+
+    .category {
+        height: 60px;
+        width: 100%;
+        position: relative;
+
+    }
+
+    .category h1 {
+        float: left;
+        position: absolute;
+        margin-top: 0px;
+        font-size: 20px;
+    }
+
+
+    .eachcate li {
+        position: relative;
+        width: 170px;
+        margin-top: 30px;
+        float: left;
+    }
+
+    #bread {
+        position: relative;
+        height: 50px;
+        width: 100%;
+        margin-top: 0px;
+        font-size: 18px;
+        background: whitesmoke;
+    }
+
+    .flower_detail1 {
+        position: relative;
+    }
+
+    .flower_detail_pic img {
+        position: relative;
+        left: 15%;
+        float: left;
+        border-radius: 10px;
+
+    }
+
+    .flower_detail_list1 {
+        position: relative;
+        left: 40%;
+    }
+
+    .main_wrap {
+        position: relative;
+        left: 15%;
+    }
+
+    .detail_tab li {
+        font-size: 20px;
+    }
+
+</style>
+<body>
+<div class="search_bar">
+    <a href="/index/" class="logo"><img
+            src="https://tse4-mm.cn.bing.net/th/id/OIP-C.GEZaOkBNVOmU8TKnkxMviAHaHa?pid=ImgDet&rs=1"></a>
+    <h1><a href="/index/">吾花</a></h1>
+    <div class="guest_cart">
+        <a href="/cart/show_cart/" class="cart_name fl">我的购物车</a>
+        <div class="flower_count">{{ cart_flower_count }}</div>
+        <ul class="cart_flowers_show">
+            {% for cart_flowers in cart_flower_list %}
+                <li>
+                    <img src="{{ cart_flowers.flower_img }}" alt="商品图片">
+                    {{ cart_flowers.flower_name }}
+                    <div>{{ cart_flowers.flower_num }}</div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="category">
+    <h1>全部商品分类</h1>
+    <ul class="eachcate">
+        {% for cag in categories %}
+            <li><a href="/flower/?cag={{ cag.id }}&amp;page=1"
+                   class="{{ cag.cag_css }}">{{ cag.cag_name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div id="bread">
+    <ul class="bread2">
+        <a href="#">全部分类</a>
+        <span></span>
+        {# 根据商品对象获取分类的名字 显示 #}
+        >{{ flower_data.flower_cag.id }}>{{ flower_data.flower_cag.cag_name }}
+        <span>></span>
+        <a href="#">商品详情</a>
+    </ul>
+</div>
+
+<div class="flower_detail1">
+    <div class="flower_detail_pic"><img src="../static/images/{{ flower_data.flower_img }}"></div>
+    <div class="flower_detail_list1">
+        <h3>{{ flower_data.flower_name }}</h3>
+        <br>
+        <div class="price_bar">
+            <span class="show_pirce">$<em>{{ flower_data.flower_price }}</em></span>
+        </div>
+        <div class="flower_num">
+            <div class="num_name">数 量</div>
+            <div class="num_add">
+                <input type="text" class="num_show fl" value="1" disabled="">
+            </div>
+        </div>
+        <div class="operate_btn">
+            <a href="/cart/add_cart/?id={{ flower_data.id }}" class="add_cart" id="add_cart">加入购物车</a>
+        </div>
+    </div>
+</div>
+
+<div class="main_wrap">
+    <ul class="detail_tab">
+        <li class="active">商品介绍</li>
+    </ul>
+    <div class="content">
+        <dl>
+            <dd>{{ flower_data.flower_desc }}</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="footer1">
+    <div class="foot_link">
+        <a href="#">关于我们</a>
+        <span>|</span>
+        <a href="#">联系我们</a>
+
+    </div>
+    <p>CopyRight @ 2022 北京吾花信息技术有限公司 All Rights Reserved</p>
+    <p>电话: 123456 京ICP备###***</p>
+</div>
+
+</body>
+</html>

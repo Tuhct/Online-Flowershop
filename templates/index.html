@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>吾花-首页</title>
+    {% load static %}
+    <script src="{% static 'js/lunbo.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mystyle.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mystyle.css' %}"><
+
+    {#<script type="text/javascript" src="static/js/jquery-1.12.4.min.js"></script>#}
+    {#<script type="text/javascript" src="/static/js/jquery.min.js"></script>#}
+    {#<script type="text/javascript" src="static/js/slide.js"></script>#}
+</head>
+<style>
+    .search_bar img {
+        float: left;
+        width: 50px;
+        hight: 20px;
+        border-radius: 10px;
+    }
+
+
+    .search_bar {
+        position: relative;
+    }
+
+    .search_bar logo {
+        float: left;
+    }
+
+    .search_bar guest_cart {
+        background: whitesmoke;
+        float: right;
+        position: relative;
+    }
+
+    .footer1 {
+        position: relative;
+        bottom: 0px;
+        height: 20px;
+        width: 650px;
+        left: 400px;
+        text-align: center;
+    }
+
+    .category {
+        height: 60px;
+        width: 100%;
+        position: relative;
+
+    }
+
+    .category h1 {
+        float: left;
+        position: absolute;
+        margin-top: 0px;
+        font-size: 20px;
+    }
+
+
+    .eachcate li {
+        position: relative;
+        width: 170px;
+        margin-top: 30px;
+        float: left;
+    }
+
+    #bread {
+        position: relative;
+        height: 50px;
+        width: 100%;
+        margin-top: 0px;
+        font-size: 18px;
+        background: whitesmoke;
+    }
+
+    .flower_detail1 {
+        position: relative;
+    }
+    .slide_pics{
+        width: 9999px;
+        height: 9999px;
+        animation: switch 10s infinite;
+        left: 15%;
+    }
+
+    .slide_pics img{
+
+        border-radius: 10px;
+        width: 820px;
+        height: 500px;
+
+    }
+
+    .slide1{
+        width:820px;
+		height:500px;
+		overflow:hidden;
+
+    }
+    @keyframes switch{
+		0%{;}
+		25%{transform:translateX(0px);}
+		50%{transform:translateX(-820px);}
+		75%{transform:translateX(-1640px);}
+		100%{transform:translateX(-2460px);}
+    }
+
+    .flower_detail_pic img {
+        position: relative;
+        left: 15%;
+        float: left;
+        border-radius: 10px;
+
+    }
+
+    .flower_banner img{
+        position: relative;
+        left: 15%;
+        float: left;
+        border-radius: 10px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .flower_list1 img{
+        position: absolute;
+        left: 15%;
+        float: left;
+        border-radius: 10px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .flower_detail_list1 {
+
+    }
+
+    .main_wrap {
+        position: relative;
+        left: 15%;
+    }
+
+    .detail_tab li {
+        font-size: 20px;
+    }
+
+</style>
+<body>
+<div class="search_bar">
+    <a href="/index/" class="logo"><img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.GEZaOkBNVOmU8TKnkxMviAHaHa?pid=ImgDet&rs=1"></a>
+    <h1><a href="/index/">吾花</a></h1>
+    <div class="guest_cart">
+        <a href="/cart/show_cart/" class="cart_name">我的购物车</a>
+        <div class="flower_count">{{ cart_flower_count }}</div>
+        <ul class="cart_flowers_show">
+            {% for cart_flowers in cart_flower_list %}
+                <li>
+                <img src="../static/images/{{ cart_flowers.flower_img }}" alt="商品图片"/>
+                {{ cart_flowers.flower_name }}
+                <div>{{ cart_flowers.flower_num }}</div>
+                </li>
+
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="category">
+        <h1>全部商品分类</h1>
+</div>
+
+<div class="header">
+    <ul class="eachcate">
+        {% for cag in categories %}
+            <li><a href="/flower/?cag={{ cag.id }}&amp;page=1"
+                   class="{{ cag.cag_css }}">{{ cag.cag_name }}</a></li>
+        {% endfor %}
+    </ul>
+    <div class="slide1">
+        <div class="slide_pics">
+            <img class="img-slide img1" src="https://img.zcool.cn/community/0183a45bf2c124a8012092527516b3.jpg@1280w_1l_2o_100sh.jpg" alt="幻灯片">
+            <img class="img-slide img2" src="https://www.lvbad.com/uploads/allimg/2003/16430HA5-19.jpg" alt="幻灯片">
+            <img class="img-slide img3" src="https://www.2008php.com/2019_Website_appreciate/2019-02-20/20190220180750WdKlSWdKlS.jpg" alt="幻灯片">
+            <img class="img-slide img4" src="https://www.lvbad.com/uploads/allimg/2003/16430HA5-19.jpg" alt="幻灯片">
+        </div>
+        <div class="prev"></div>
+        <div class="next"></div>
+        <ul class="points">
+
+        </ul>
+    </div>
+</div>
+
+{% for cag in categories %}
+    <div class="list_model1">
+        <div class="list_title">
+            <h3 class="f1" id="model01">{{ cag.cag_name }}</h3>
+            <a href="/flower/?cag={{ cag.id }}&amp;page=1" class="goods_more fr" id="mati_more">查看更多 &gt</a>
+        </div>
+        <div class="flower_con">
+            <div class="flower_banner"><img src="../static/images/{{ cag.cag_img }}"> </div>
+            <ul class="flower_list1">
+                {% for flowers in cag.flower_list %}
+                    <li>
+                        <h4><a href="/detail/?id={{ flowers.id }}">{{ flowers.flower_name }}</a></h4>
+                        <a href="/detail/?id=16"> <img src="/static/images/{{ flowers.flower_img }}"> </a>
+                        <div class="prize">￥ {{ flowers.flower_price }}</div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+{% endfor %}
+
+<div class="footer1">
+    <div class="foot_link">
+        <a href="#">关于我们</a>
+        <span>|</span>
+        <a href="#">联系我们</a>
+        <span>|</span>
+        <a href="#">我是帅哥</a>
+    </div>
+    <p>CopyRight @ 2022 北京吾花信息技术有限公司 AllRights Reserved</p>
+    <p >design by: Tuhct | 更多资讯 www.myflower.com</p>
+    <p>电话: 123456 京ICP备###***</p>
+</div>
+
+</body>
+</html>

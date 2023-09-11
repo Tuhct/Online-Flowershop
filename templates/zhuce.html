@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html;charset=gb2312"/>
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+		<!--登陆时候，验证账号密码是否为空-->
+												<!--οnsubmit="return login()"提交时候触发判断-->
+		<form action="...." method="post" οnsubmit="return login()">
+			用户名:<input id="name" type="text"/><br>
+			密码:<input id="pass" type="password"/>
+			<input type="submit" value="提交">
+		</form>
+
+		<script>
+			function login(){
+				//得到name输入框对象
+				var name = document.getElementById("name");
+				//判断输入框是否有内容
+				if(name.value.length==0){
+					confirm("用户名不能为空");
+					return false;
+				}
+				var pass = document.getElementById("pass");
+				if(pass.value.length==0){
+					confirm("密码不能为空");
+					return false;
+				}
+				return true;
+			}
+		</script>
+	</body>
+</html>

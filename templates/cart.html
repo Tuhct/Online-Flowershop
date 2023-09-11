@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>购物车</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <script src="{%  static 'js/jquery.js' %}"></script>
+    <script src="{% static 'css/bootstrap.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<style>
+    .search_bar img {
+        float: left;
+        width: 50px;
+        hight: 20px;
+        border-radius: 10px;
+    }
+
+
+    .search_bar {
+        position: relative;
+    }
+
+    .search_bar logo {
+        float: left;
+    }
+
+    .search_bar guest_cart {
+        background: whitesmoke;
+        float: right;
+        position: relative;
+    }
+    .footer1 {
+        position: relative;
+        bottom: 0px;
+        height: 20px;
+        width: 650px;
+        left: 400px;
+        text-align: center;
+    }
+</style>
+<body>
+<div class="search_bar clearfix">
+    <a href="/index/" class="logo f1"><img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.GEZaOkBNVOmU8TKnkxMviAHaHa?pid=ImgDet&rs=1" alt=""></a>
+    <h1><a href="/index/">吾花</a></h1>
+    <div class="guest_cart"> 购物车</div>
+</div>
+
+<div class="total_count">全部商品<em>{{ cart }}</em>件</div>
+<ul class="cart_list_th clearfix">
+    <li class="col01">商品名称</li>
+    <li class="col03">商品价格</li>
+    <li class="col04">数量</li>
+    <li class="col05">小计</li>
+    <li class="col06">操作</li>
+</ul>
+
+{% for cart_flowers in cart_flower_list %}
+    <ul class="cart_list_td clearfix">
+        <li class="cole1"></li>
+        <li class="col02"><img src="/static/images/{{ cart_flowers.flower_img}}"></li>
+        <li class="col03">{{ cart_flowers.flower_name }}<br><em>{{ cart_flowers.flower_price }}</em></li>
+        {#<li class="cole4"></li>#}
+        <li class="cole5">{{ cart_flowers.flower_price }}</li>
+        <li class="cole6">{{ cart_flowers.flower_num }}</li>
+        <li class="cole7">{{ cart_flowers.total_money }}</li>
+        <li class="cole8"><a href="/cart/remove_cart/?id={{ cart_flowers.id }}">删除</a></li>
+    </ul>
+
+{% endfor %}
+
+<ul class="settlements">
+    <li class="col01">.</li>
+    <li class="col02">.</li>
+    <li class="col03">合计(不含运费): <span>￥</span><em>{{ cart_flower_money }}</em><br>共计<b>{{cart_flower_count}}</b>件商品</li>
+    <li class="col04"><a href="/cart/place_order/">去结算</a></li>
+</ul>
+
+<div class="footer1">
+    <div class="foot_link">
+        <a href="#">关于我们</a>
+        <span>|</span>
+        <a href="#">联系我们</a>
+
+    </div>
+    <p>CopyRight @ 2022 北京吾花信息技术有限公司 A1 Rights Reserved</p>
+    <p>电话: 123456 京ICP备###***</p>
+</div>
+
+</body>
+</html>

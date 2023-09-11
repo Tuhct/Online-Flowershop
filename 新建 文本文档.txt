@@ -1,0 +1,7 @@
+categories = [('','',1),(),(),()，(),()]
+for cag in categories:
+c = GoodsCategory()
+c.cagname s cag[0]
+c.cag_css = cag[1]
+c.cag_img = 'images/banner0%d.jpg'%cag[2]
+c.save() #insert

@@ -1,0 +1,220 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+body {
+    margin: 0 auto;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    line-height: 22px;
+}
+div,p,input,ul,li,h1,h2,h3 {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    list-style: none;
+}
+
+a {
+    color: #131313;
+    text-decoration: none;
+}
+.web{
+    width: 1024px;
+    height: auto;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.top{
+    height: 522px;
+}
+#nav{
+    height: 45px;
+    width: 100%;
+    background: #313131;
+}
+#nav ul{
+    padding: 0px;
+}
+#nav ul li{
+    float: left;
+    margin: 0px 43px;
+}
+#nav ul li a{
+    line-height: 45px;
+    font-size: 16px;
+    color: #ffffff;
+}
+.main{
+    height: auto;
+    overflow: hidden;
+}
+.title{
+    width: 200px;
+    height: 50px;
+    border-bottom: #e9421a 3px solid;
+    line-height: 50px;
+    margin: 0 auto;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.ibox1{
+    height: 335px;
+}
+.ibox1 ul{
+    padding: 0px;
+}
+.ibox1 ul li{
+    float: left;
+    width: 242px;
+    margin: 0px 7px;
+}
+.ibox1 ul li h1{
+    height: 45px;
+    line-height: 45px;
+    font-weight: normal;
+    text-align: center;
+    font-size: 14px;
+}
+.ibox2{
+    height: 270px;
+}
+.ibox2 img{
+    float: left;
+    margin-right: 20px;
+}
+.ibox2 p{
+    line-height: 30px;
+    text-indent: 2em;
+    font-size: 14px;
+}
+.foot{
+    height: 50px;
+    line-height: 50px;
+    background: #cccccc;
+    text-align: center;
+    font-size: 14px;
+}
+.about{
+    padding: 20px;
+}
+.about p{
+    line-height: 30px;
+    text-indent: 2em;
+    font-size: 14px;
+}
+.about img{
+    display: block;
+    margin:0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.chongwu {
+    height:auto;
+    overflow:hidden;
+}
+.chongwu ul {
+    padding: 0px;
+}
+.chongwu ul li {
+    width:300px;
+    float: left;
+    padding:20px;
+}
+.chongwu h1{
+    height: 50px;
+    line-height:50px;
+    text-align:center;
+    font-size:14px;
+    font-weight: bold;
+}
+.chongwu p{
+    color:#171717;
+    font-size:14px;
+    }
+.news{
+    padding: 20px;
+    height: auto;
+    overflow: auto;
+}
+.news ul{
+    padding: 0px;
+}
+.news ul li{
+    height: 30px;
+    line-height: 30px;
+    border-bottom: #313131 1px dashed;
+}
+.news ul li a{
+    font-size: 14px;
+}
+.news ul li span{
+    float:right;
+}
+.goumai{
+    padding: 20px;
+    height: auto;
+    overflow: hidden;
+}
+.goumaibox{
+    width: 470px;
+    height: 300px;
+    margin: 10px;
+    float: left;
+    background: #fcddd6;
+}
+.goumaibox img{
+    float: left;
+    margin-right: 15px;
+}
+.goumaibox p{
+    height: 30px;
+    line-height: 30px;
+    font-size:14px;
+}
+.lingshi{
+    padding: 20px;
+    height: auto;
+    overflow: hidden;
+}
+.lingshibox{
+    width: 470px;
+    height: 300px;
+    margin: 10px;
+    float: left;
+    border: #E9421A 1px solid;
+}
+.lingshibox p{
+    line-height:25px;
+    font-size:14px;
+    padding: 20px;
+}
+.lingshibox span{
+    font-size: 20px;
+    font-weight: bold;
+}
+.zhuce{
+    width:400px;
+    height:400px;
+    margin:0 auto;
+    margin-bottom:30px;
+    }
+.news p{
+    line-height: 30px;
+    font-size: 14px;
+    text-indent: 2em;
+}
+.wtitle{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-bottom: #313131 1px dashed;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}

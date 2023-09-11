@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>提交订单</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <script src="{%  static 'js/jquery.js' %}"></script>
+    <script src="{% static 'css/bootstrap.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div class="search_bar clearfix">
+    <a href="/index/" class="logo f1"><img src="/static/images/logo.png" alt=""></a>
+    <h1><a href="/index/">吾花</a></h1>
+    <div class="sub_page_name fl">订单提交成功</div>
+</div>
+
+<h3 class="common_title">商品列表</h3>
+<div class="common_list_con clearfix">
+    <ul class="flower_list_th clearfix">
+        <li class="co101">商品名称</li>
+        <li class="co103">商品价格</li>
+        <li class="co104">效量</li>
+        <li class="col05">小计</li>
+    </ul>
+
+    {% for order_flowers in order_flower_list %}
+        <ul class="flower_list_td clearfix">
+            <li class="cole1"></li>
+            <li class="col02"><img src="/static/flower/{{ order_flowers.flower_info.flower_img }}"></li>
+            <li class="col03">{{ order_flowers.flower_info.flower_name }}<br><em>{{ cart_flowers.flower_price }}</em>
+            </li>
+            {#<li class="cole4"></li>#}
+            <li class="cole5">{{ order_flowers.flower_info.flower_price }}</li>
+            <li class="cole6">{{ order_flowers.flower_num }}</li>
+            <li class="cole7">{{ order_flowers.total_money }}元</li>
+        </ul>
+    {% endfor %}
+</div>
+
+<h3 class="common_title">订单信息</h3>
+<div class="common_list_con clearfix">
+    <dl>
+        <dd>
+            <table>
+                <tr>
+                    <td width="100">订单编号:</td>
+                    <td>{{ orderinfo.order_id }}</td>
+                </tr>
+                <tr>
+                    <td>收货地址:</td>
+                    <td>{{ orderinfo.order_addr }}</td>
+                </tr>
+                <tr>
+                    <td>收货人:</td>
+                    <td>{{ orderinfo.order_recv }}</td>
+                </tr>
+                <tr>
+                    <td>联系电话:</td>
+                    <td>{{ orderinfo.order_tele }}</td>
+                </tr>
+                <tr>
+                    <td>送达时间：</td>
+                    <td>{{ orderinfo.order_time }}</td>
+                </tr>
+                <tr>
+                    <td>备注:</td>
+                    <td>{{ orderinfo.order_extra }}</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+</div>
+
+<h3 class="common_title">总金额结算</h3>
+<div class="common_list_con clearfix">
+    <div class="settle_con">
+        <div class="total_flower_count">共<em>{{ total_num }}</em>件商品，总金额<b>{{ total_money }}元</b></div>
+        <div class="transit">运费:<b>0元</b></div>
+        <div class="total_pay">实付款: <b>{{ total_money }}元</b></div>
+
+    </div>
+</div>
+
+
+<div class="footer">
+    <div class="foot_link">
+        <a href="#">关于我们</a>
+        <span>|</span>
+        <a href="#">联系我们</a>
+
+    </div>
+    <p>CopyRight @ 2022 北京吾花信息技术有限公司 A1 Rights Reserved</p>
+    <p>电话: 123456 京ICP备###***</p>
+</div>
+
+</body>
+</html>
